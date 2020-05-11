@@ -17,7 +17,9 @@ int main() {
         "kobyla ma maly bok",
         "kobyla  ma maly bok",
         "Kobyla  ma maly bok",
-        "kOb yl A mA maly bo K"
+        "kOb yl A mA maly bo K",
+        "kOb yl A mA maly bo K ",
+        " kOb yl A mA maly bo K"
     };
 
     for(std::string s : tests) {
@@ -37,6 +39,9 @@ bool isPalindrome(const std::string & str) {
     int caseModL = 0, caseModR = 0;
 
     while(i < j) {
+        while(str[i] == ' ') i++;
+        while(str[j] == ' ') j--;
+
         (str[i] >= 'A' && str[i] <= 'Z') ? caseModL = 32 : caseModL = 0;
         (str[j] >= 'A' && str[j] <= 'Z') ? caseModR = 32 : caseModR = 0;
 
@@ -46,8 +51,8 @@ bool isPalindrome(const std::string & str) {
             return false;
         }
         
-        do {i++;} while(str[i] == ' ');
-        do {j--;} while(str[j] == ' ');
+        i++;
+        j--;
     }
 
     std::cout << "\"" << str << 
