@@ -1,1 +1,1 @@
-# palindrome
+# ignoring case and (multiple) spaces
