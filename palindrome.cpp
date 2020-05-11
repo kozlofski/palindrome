@@ -15,7 +15,8 @@ int main() {
         "kajak",
         "pp",
         "kobyla ma maly bok",
-        "kobyla  ma maly bok"
+        "kobyla  ma maly bok",
+        "Kobyla  ma maly bok"
     };
 
     for(std::string s : tests) {
@@ -30,9 +31,14 @@ bool isPalindrome(const std::string & str) {
         std::cout << "\"" << str << "\" is too short" << std::endl;
         return false;
     }
-    int i = 0, j = str.length() - 1;
+
+    int i = 0, j = str.length() - 1, caseModL = 0, caseModR = 0;
+
     while(i < j) {
-        if(str[i] != str[j]) {
+        (str[i] >= 'A' && str[i] <= 'Z') ? caseModL = 32 : caseModL = 0;
+        (str[j] >= 'A' && str[j] <= 'Z') ? caseModR = -32 : caseModR = 0;
+
+        if((str[i] + caseModL) != str[j] + caseModR) {
             std::cout << "\"" << str << 
             "\" is NOT a palindrome" << std::endl;
             return false;
@@ -40,9 +46,8 @@ bool isPalindrome(const std::string & str) {
         
         do {i++;} while(str[i] == ' ');
         do {j--;} while(str[j] == ' ');
-
-
     }
+
     std::cout << "\"" << str << 
     "\" is a palindrome" << std::endl;
     return true;

@@ -5,4 +5,4 @@ set(CMAKE_CXX_COMPILER "/usr/bin/g++")
 
 project(Palindrome)
 
-add_executable(Tutorial palindrome.cpp)
+add_executable(Palindrome palindrome.cpp)
